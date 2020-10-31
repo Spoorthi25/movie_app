@@ -1,0 +1,45 @@
+<h2><strong>Search Movie:</strong></h2><br>
+
+<%= form_for "",url:movies_path,role:"search",method: :get do %>
+  
+    <%= text_field_tag :search, @search_term,placeholder:"Search" %>
+    
+    <% end %>
+
+<h1> Movies Listing</h1>
+<div class="row">
+<div class= "col-9">
+   <table class="table table-bordered table-hover">
+   <thead class="thead-light">
+    <tr>
+    <th>Movie Name </th>
+    <th>Description </th>
+    <th>Actor Name </th>
+    <th>Director Name </th>
+    <th>Movie Language </th>
+    <th>ShowTime</th>
+    <th>Delete Movie</th>
+    <th>Show Movie</th>
+    <th>Edit Movie</th>
+  
+    </tr>
+  </thead>
+  <tbody>
+  <% @movies.each do |movie| %>
+    <tr>
+    <td><%= movie.movie_name %></td>
+    <td><%= movie.description %></td>
+    <td><%= movie.actor_name %></td>
+    <td><%= movie.director_name %></td>
+    <td><%= movie.movie_language %></td>
+    <td><%= movie.show_time %></td>
+<td><%= link_to 'Delete',movie_path(movie),class:"btn btn-danger ", method: :delete %></td>
+<td><%= link_to 'Show',movie_path(movie),class:"btn btn-success " %></td>
+<td><%= link_to 'Edit',edit_movie_path(movie),class:"btn btn-info " %></td>
+     </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

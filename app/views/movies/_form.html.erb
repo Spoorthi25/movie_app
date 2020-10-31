@@ -1,0 +1,54 @@
+<div class="container">
+<%= render 'shared/errors',obj:@movie %>
+<div class= "row justify-content center">
+<div class="col-10">
+    <%= form_with(model:@movie, class:"shadow p-4 mb-4 bg-secondary rounded",local: true) do |f| %>
+     <div class="form-group row" >
+        <%= f.label :movie_name ,class:"col-2 col-form-label text-light"%>
+        <div class="col-10">
+        <%= f.text_field :movie_name, class:"form-control shadow-rounded",placeholder:"Movie Nmae" %>
+        </div>
+    </div>
+
+    <div class="form-group row" >
+        <%= f.label :description ,class:"col-2 col-form-label text-light"%>
+        <div class="col-10">
+        <%= f.text_field :description, class:"form-control shadow-rounded",placeholder:"Description" %>
+        </div>
+    </div>
+    <div class="form-group row" >
+        <%= f.label :actor_name ,class:"col-2 col-form-label text-light"%>
+        <div class="col-10">
+        <%= f.text_field :actor_name, class:"form-control shadow-rounded",placeholder:"Actor Nmae" %>
+        </div>
+    </div>
+    <div class="form-group row" >
+        <%= f.label :director_name ,class:"col-2 col-form-label text-light"%>
+        <div class="col-10">
+        <%= f.text_field :director_name, class:"form-control shadow-rounded",placeholder:"Director Name" %>
+        </div>
+    </div>
+    <div class="form-group row" >
+        <%= f.label :movie_language,class:"col-2 col-form-label text-light"%>
+        <div class="col-10">
+        <%= f.text_field :movie_language, class:"form-control shadow-rounded",placeholder:"Language" %>
+        </div>
+    </div>
+ <div class="form-group row" >
+        <%= f.label :show_time,class:"col-2 col-form-label text-light"%>
+        <div class="col-10">
+        <%= f.text_field :show_time, class:"form-control shadow-rounded",placeholder:"ShowTime" %>
+        </div>
+    </div>
+        
+    <div class="form-group row justify-content center" >
+    <%= f.submit class:"btn btn-outline-light  btn-lg" %>
+    </div>
+
+    <%end%>
+</div>
+     <div class="mb-3">
+     <%= link_to '[Cancel and Return to Movies listing]',movies_path,class:"text-info" %> 
+     </div>
+     </div>
+     </div>

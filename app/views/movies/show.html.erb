@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center shadow mb-5 bg-white rounded">
+        <div class="card-header font-italic">
+        </div>
+        <div class="card-body">
+        <h3> Movie</h3>
+          <h5 class="card-title"><%= (@movie.movie_name) %></h5>
+    <p class="card-text"><strong>Description: </strong><%= (@movie.description) %></p>
+    <p class="card-text"><strong>Actor Name:</strong><%= (@movie.actor_name) %></p>
+    <p class="card-text"><strong>Director Name:</strong><%= (@movie.director_name) %></p>
+    <p class="card-text"><strong>Movie Language:</strong><%= (@movie.movie_language) %></p>
+    <p class="card-text"><strong>ShowTime:</strong><%= (@movie.show_time) %></p>
+          <% if logged_in? && (current_user == @movie.user || current_user.admin?) %>
+          <%= link_to "Edit", edit_movie_path(@movie), class: "btn btn-outline-info" %>
+          <%= link_to "Delete", movie_path(@movie), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+           </div>
+          <% end %>
+    </div>
+    </div>
+  </div>
+ 
+</div>
+
+
